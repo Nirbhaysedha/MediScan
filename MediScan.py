@@ -12,9 +12,8 @@ import os
 from langchain.llms import GooglePalm
 from langchain.llms import OpenAI
 
-reader = easyocr.Reader(['en'])  # Initialize EasyOCR reader for English text recognition
+reader = easyocr.Reader(['en'])  
 
-response = ""  # Global variable to store OCR readings
 
 def perform_ocr(frame):
     result = reader.readtext(frame)
@@ -28,7 +27,7 @@ def main():
 
     st.title("MediScan!")
 
-    cap = cv2.VideoCapture(0)  # Use 0 for default webcam, change accordingly
+    cap = cv2.VideoCapture(0)  
     show_video = st.empty()
     start_recording = st.button("Start Recording")
     stop_recording = st.button("Stop Recording")
@@ -43,7 +42,7 @@ def main():
         ret, frame = cap.read()
 
         if start_recording:
-            response = ""  # Reset response on start recording
+            response = "" 
             recording = True
             start_recording = False
 
@@ -79,5 +78,4 @@ def main():
 
 if __name__ == "__main__":
     main()
-    # reponse
 
